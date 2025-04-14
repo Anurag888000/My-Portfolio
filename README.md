@@ -12,7 +12,7 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 ## 📸 Demo
 
-![Portfolio Demo](./website-demo-image/desktop.png)
+![Portfolio Demo](./website-demo-image/desktop.png) (./website-demo-image/desktop.png)
 
 ## 🛠️ Built With
 
@@ -22,8 +22,7 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 ## 🌍 Live Preview
 
-[🔗 View Live Demo](https://your-portfolio-link.com)  
-> *(Replace the URL above with your deployed site link, e.g., GitHub Pages, Netlify, Vercel, etc.)*
+[🔗 View Live Demo](https://your-portfolio-link.com) 
 
 ## 📦 How to Use
 
