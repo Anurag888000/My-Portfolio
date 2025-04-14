@@ -14,13 +14,11 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 ![Portfolio Demo](./website-demo-image/desktop.png)
 
-![Portfolio Demo](./website-demo-image/mobile.png)
-
 ## 🛠️ Built With
 
 - HTML5
 - CSS3 (Flexbox, Grid, Media Queries)
-- JavaScript (Vanilla JS)
+- JavaScript 
 
 ## 🌍 Live Preview
 
