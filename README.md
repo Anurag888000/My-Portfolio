@@ -12,9 +12,9 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 ## 📸 Demo
 
-![Portfolio Demo](./assets/demo-image.png)
+![Portfolio Demo](./website-demo-image/desktop.png)
 
-> *(Replace the path above with your actual image path)*
+![Portfolio Demo](./website-demo-image/mobile.png)
 
 ## 🛠️ Built With
 
@@ -31,4 +31,6 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/Anurag888000/My-Portfolio.git
+   cd My-Portfolio
+   open index.html
