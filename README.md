@@ -12,7 +12,8 @@ A clean and responsive personal portfolio website built using **HTML**, **CSS**,
 
 ## 📸 Demo
 
-![Portfolio Demo](./website-demo-image/desktop.png) (./website-demo-image/desktop.png)
+![Portfolio Demo](./website-demo-image/desktop.png) 
+![Portfolio Demo](./website-demo-image/mobile.png) 
 
 ## 🛠️ Built With
 
