@@ -173,3 +173,107 @@ function sendEmail() {
   // Open mailto link
   window.location.href = mailtoLink;
 }
+
+// Project Carousel - Sync dots with animation
+(function initCarouselDots() {
+  const carousels = document.querySelectorAll('.project-carousel');
+  
+  carousels.forEach(carousel => {
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
+    if (dots.length === 0) return;
+    
+    let currentSlide = 0;
+    const totalSlides = dots.length;
+    const slideDuration = 3000; // 3 seconds per slide (matches CSS animation: 9s / 3 slides)
+    
+    function updateDots() {
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      currentSlide = (currentSlide + 1) % totalSlides;
+    }
+    
+    // Initial state
+    updateDots();
+    
+    // Sync with CSS animation timing
+    setInterval(updateDots, slideDuration);
+  });
+})();
+
+// Project Modal Functionality
+(function initProjectModal() {
+  const projectItems = document.querySelectorAll('[data-project-item]');
+  const modalContainer = document.querySelector('[data-project-modal-container]');
+  const modalOverlay = document.querySelector('[data-project-modal-overlay]');
+  const modalCloseBtn = document.querySelector('[data-project-modal-close-btn]');
+  const modalImg = document.querySelector('[data-project-modal-img]');
+  const modalTitle = document.querySelector('[data-project-modal-title]');
+  const modalDescription = document.querySelector('[data-project-modal-description]');
+  const githubBtn = document.querySelector('[data-project-github-btn]');
+  const liveBtn = document.querySelector('[data-project-live-btn]');
+
+  if (!modalContainer) return;
+
+  // Toggle modal
+  function toggleModal() {
+    modalContainer.classList.toggle('active');
+    document.body.style.overflow = modalContainer.classList.contains('active') ? 'hidden' : '';
+  }
+
+  // Populate modal with project data
+  function populateModal(projectItem) {
+    const title = projectItem.dataset.title || '';
+    let description = projectItem.dataset.description || '';
+    const github = projectItem.dataset.github || '';
+    const live = projectItem.dataset.live || '';
+    const image = projectItem.dataset.image || '';
+
+    // Format description: convert || to section break, | to line breaks
+    description = description
+      .replace(/\|\|/g, '<br><br>')  // Double pipe = section break
+      .replace(/\|/g, '<br>');       // Single pipe = line break
+
+    modalImg.src = image;
+    modalImg.alt = title;
+    modalTitle.textContent = title;
+    modalDescription.innerHTML = description;
+
+    // Show/hide GitHub button
+    if (github) {
+      githubBtn.href = github;
+      githubBtn.classList.remove('hidden');
+    } else {
+      githubBtn.classList.add('hidden');
+    }
+
+    // Show/hide Live button
+    if (live) {
+      liveBtn.href = live;
+      liveBtn.classList.remove('hidden');
+    } else {
+      liveBtn.classList.add('hidden');
+    }
+
+    toggleModal();
+  }
+
+  // Add click event to all project items
+  projectItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      populateModal(this);
+    });
+  });
+
+  // Close modal events
+  modalCloseBtn.addEventListener('click', toggleModal);
+  modalOverlay.addEventListener('click', toggleModal);
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modalContainer.classList.contains('active')) {
+      toggleModal();
+    }
+  });
+})();
